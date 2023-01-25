@@ -2,7 +2,7 @@ import Blogs from '@/components/Blogs/Blogs';
 import React from 'react';
 
 const getBlogs = async () => {
-  const res = await fetch('/data.json');
+  const res = await fetch('http://localhost:3000/data.json');
   const data = res.json();
   return data;
 };
