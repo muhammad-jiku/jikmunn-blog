@@ -1,9 +1,10 @@
+import Image from 'next/image';
 import React from 'react';
 
 const BlogDetails = () => {
   return (
-    <div>
-      <h1>This is Blog details section </h1>
+    <div className="max-w-sm mx-auto overflow-hidden rounded shadow-lg">
+      <Image src={''} alt={''} height={240} width={100} />
     </div>
   );
 };
