@@ -11,7 +11,12 @@ const Blogs = ({ blog }) => {
       />
       <div className="p-6">
         <div className="mb-2 text-xl font-bold"> {blog?.title} </div>
-        <p className="text-base text-gray-700"> {blog?.desc} </p>
+        <p className="text-base text-gray-700">
+          {' '}
+          {blog?.desc?.length < 50
+            ? blog?.desc
+            : blog?.desc?.slice(0, 50) + '...'}{' '}
+        </p>
       </div>
       <div className="text-center">
         <Link
