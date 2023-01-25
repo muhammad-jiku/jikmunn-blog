@@ -1,10 +1,17 @@
 import Blogs from '@/components/Blogs/Blogs';
 import React from 'react';
 
-const page = () => {
+const getBlogs = async () => {
+  const res = await fetch('/data.json');
+  const data = res.json();
+  return data;
+};
+
+const page = async () => {
+  const blogs = await getBlogs();
   return (
     <div>
-      <Blogs />
+      <Blogs blogs={blogs} />
     </div>
   );
 };
