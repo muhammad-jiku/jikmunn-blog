@@ -1,9 +1,13 @@
+import AddBlog from '@/components/Blogs/AddBlog';
 import React from 'react';
 
 const addBlog = () => {
   return (
     <div>
-      <h1>Add blog</h1>
+      <h1 className="text-center text-xl font-bold uppercase text-blue-600 underline my-6">
+        Add a blog
+      </h1>
+      <AddBlog />
     </div>
   );
 };
