@@ -42,6 +42,12 @@ const AddBlog = () => {
           className="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 appearance-none rounded focus:outline-none focus:bg-white"
         />
       </div>
+      <button
+        type="submit"
+        className="w-full p-4 font-semibold text-blue-700 bg-transparent border border-blue-500 rounded hover:bg-blue-500 hover:text-white hover:border-transparent"
+      >
+        Submit
+      </button>
     </form>
   );
 };
