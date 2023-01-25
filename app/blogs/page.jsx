@@ -11,7 +11,9 @@ const page = async () => {
   const blogs = await getBlogs();
   return (
     <div>
-      <Blogs blogs={blogs} />
+      {blogs?.map((blog, idx) => (
+        <Blogs key={idx} blog={blog} />
+      ))}
     </div>
   );
 };
