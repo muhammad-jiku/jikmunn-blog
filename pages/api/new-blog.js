@@ -7,7 +7,10 @@ export default async function handler(req, res) {
   try {
     await databaseConnect();
     const { title, picUrl, desc } = req.body;
-    const randomNum = Math.floor(Math.random() * 1000);
+    const randomNum = Math.floor(
+      Math.random() * 100 +
+        (Math.random() * 10 * (Math.random() * 1000)) / (Math.random() * 100)
+    );
 
     const newBlog = {
       id: randomNum?.toString(),
