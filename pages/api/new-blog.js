@@ -1,7 +1,11 @@
-export default function handler(req, res) {
+import Blog from '@/db/models/Blog';
+import databaseConnect from '@/db/utils/databaseConnect';
+
+export default async function handler(req, res) {
   if (req.method !== 'POST') return;
 
   try {
+    await databaseConnect();
     const { title, picUrl, desc } = req.body;
     const randomNum = Math.floor(Math.random() * 1000);
 
@@ -12,9 +16,11 @@ export default function handler(req, res) {
       desc,
     };
 
+    const savedBlog = await new Blog(newBlog).save();
+
     res.status(200).json({
       message: 'New blog added successfully',
-      data: newBlog,
+      data: savedBlog,
     });
   } catch (error) {
     // console.log(error)
