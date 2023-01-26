@@ -16,7 +16,7 @@ const AddBlog = () => {
       picUrl: picUrlRef?.current?.value,
       desc: descRef?.current?.value,
     };
-    // addBlogHandler(blogData);
+
     const res = await fetch('http://localhost:3000/api/new-blog', {
       method: 'POST',
       headers: {

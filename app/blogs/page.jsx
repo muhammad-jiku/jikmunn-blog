@@ -1,5 +1,7 @@
-import Blogs from '@/components/Blogs/Blogs';
 import React from 'react';
+
+//  internal import
+import Blogs from '@/components/Blogs/Blogs';
 
 const getBlogs = async () => {
   const res = await fetch('http://localhost:3000/api/blogs');

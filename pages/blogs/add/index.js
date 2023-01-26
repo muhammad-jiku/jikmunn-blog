@@ -1,5 +1,7 @@
-import AddBlog from '@/components/Blogs/AddBlog';
 import React from 'react';
+
+//  internal import
+import AddBlog from '@/components/Blogs/AddBlog';
 
 const AddBlogPage = () => {
   return (

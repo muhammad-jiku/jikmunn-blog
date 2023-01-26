@@ -1,4 +1,6 @@
 import React from 'react';
+
+//  internal import
 import Navbar from '../Navbar/Navbar';
 
 const MainLayout = ({ children }) => {

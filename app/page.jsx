@@ -1,26 +1,19 @@
-import Image from 'next/image';
-import { Inter } from '@next/font/google';
-import styles from '../styles/page.module.css';
-import Head from 'next/head';
+//  internal import
+import Blogs from '@/components/Blogs/Blogs';
 
-const inter = Inter({ subsets: ['latin'] });
+const getBlogs = async () => {
+  const res = await fetch('http://localhost:3000/api/blogs');
+  const data = await res.json();
+  return data;
+};
 
-export default function Home() {
+export default async function Home() {
+  const blogs = await getBlogs();
   return (
-    <>
-      <Head>
-        {/* <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="true"
-        /> */}
-        <link
-          href="https://fonts.googleapis.com/css2?family=Sofia+Sans:ital,wght@1,600&display=swap"
-          rel="stylesheet"
-        />
-      </Head>
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
-    </>
+    <div>
+      {blogs?.data?.map((blog, idx) => (
+        <Blogs key={idx} blog={blog} />
+      ))}
+    </div>
   );
 }

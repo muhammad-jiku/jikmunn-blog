@@ -1,5 +1,7 @@
-import BlogDetails from '@/components/Blogs/BlogDetails';
 import React from 'react';
+
+//  internal import
+import BlogDetails from '@/components/Blogs/BlogDetails';
 
 const blogsUrl = 'http://localhost:3000/api/blogs';
 

@@ -1,3 +1,4 @@
+//  internal imports
 import Blog from '@/db/models/Blog';
 import databaseConnect from '@/db/utils/databaseConnect';
 
