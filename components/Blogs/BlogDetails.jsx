@@ -1,6 +1,7 @@
 import React from 'react';
 
 const BlogDetails = ({ blog }) => {
+  // console.log(blog);
   return (
     <div className="max-w-sm my-6 mx-auto overflow-hidden rounded shadow-lg">
       <img
