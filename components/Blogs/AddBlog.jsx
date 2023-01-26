@@ -1,8 +1,35 @@
-import React from 'react';
+'use client';
+import React, { useRef } from 'react';
 
 const AddBlog = () => {
+  const titleRef = useRef();
+  const picUrlRef = useRef();
+  const descRef = useRef();
+
+  const blogSubmitHandler = async () => {
+    // e.preventDefault();
+    const blogData = {
+      title: titleRef?.current?.value,
+      picUrl: picUrlRef?.current?.value,
+      desc: descRef?.current?.value,
+    };
+    // addBlogHandler(blogData);
+    const res = await fetch('http://localhost:3000/api/new-blog', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(blogData),
+    });
+
+    const blog = await res.json();
+    console.log(blog);
+  };
   return (
-    <form className="w-full max-w-lg my-6 p-6 mx-auto border border-blue-300">
+    <form
+      onSubmit={blogSubmitHandler}
+      className="w-full max-w-lg my-6 p-6 mx-auto border border-blue-300"
+    >
       <div className="flex flex-wrap mb-6 mx-3">
         <label
           htmlFor="title"
@@ -13,6 +40,7 @@ const AddBlog = () => {
         <input
           type="text"
           placeholder="Title"
+          ref={titleRef}
           className="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 appearance-none rounded focus:outline-none focus:bg-white"
         />
       </div>{' '}
@@ -26,6 +54,7 @@ const AddBlog = () => {
         <input
           type="text"
           placeholder="Image"
+          ref={picUrlRef}
           className="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 appearance-none rounded focus:outline-none focus:bg-white"
         />
       </div>{' '}
@@ -39,6 +68,7 @@ const AddBlog = () => {
         <input
           type="text"
           placeholder="Description"
+          ref={descRef}
           className="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 appearance-none rounded focus:outline-none focus:bg-white"
         />
       </div>
