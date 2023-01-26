@@ -3,7 +3,7 @@ import React from 'react';
 
 const blogsUrl = 'http://localhost:3000/api/blogs';
 
-const BlogInfoPage = () => {
+const BlogInfoPage = ({ blog }) => {
   return (
     <div>
       <BlogDetails blog={blog} />
