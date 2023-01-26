@@ -1,13 +1,16 @@
 'use client';
 import React, { useRef } from 'react';
+import { useRouter } from 'next/navigation';
 
 const AddBlog = () => {
+  const router = useRouter();
+
   const titleRef = useRef();
   const picUrlRef = useRef();
   const descRef = useRef();
 
-  const blogSubmitHandler = async () => {
-    // e.preventDefault();
+  const blogSubmitHandler = async (e) => {
+    e.preventDefault();
     const blogData = {
       title: titleRef?.current?.value,
       picUrl: picUrlRef?.current?.value,
@@ -24,6 +27,7 @@ const AddBlog = () => {
 
     const blog = await res.json();
     console.log(blog);
+    router.push('/');
   };
   return (
     <form
